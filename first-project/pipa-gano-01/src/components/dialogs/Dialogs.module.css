@@ -1,0 +1,40 @@
+.dialogs{
+    display: grid;
+    grid-template-columns: 2.5fr 8fr;
+    grid-template-rows: 1fr; 
+    max-width: 800px;
+    min-height: 600px;
+}
+.dialogs__items{
+    background-color: #f2dfd3;
+}
+
+.messages{
+    padding-top: 5px;
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 auto;
+    border: 2px solid #7c3f06;
+    min-height: 99%;
+    position: relative;
+    max-width: 500px;
+    background-color: #f2dfd3;
+}
+
+
+.Dialog__Create{
+    
+    display: flex;
+    justify-items:center;
+    justify-content:center;
+    position: absolute;
+    bottom: 0;
+     
+}
+
+.Create__button{
+    background-color: rgb(12, 136, 12);
+}
+.Create__text{
+    color:lightslategrey
+}

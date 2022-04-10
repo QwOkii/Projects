@@ -1,0 +1,12 @@
+.item{
+    padding: 5px;
+    display: grid;
+    gap: 10px;
+}
+.item a{
+    color: #000;
+    text-decoration: none;
+}
+.item:active{
+    color:rgb(255, 0, 0);
+}

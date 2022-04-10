@@ -1,0 +1,12 @@
+
+.message{
+    border: 2px solid #a09d9df1;
+    border-radius: 5% ;
+    text-align: justify;
+    margin-right: 150px;
+    box-sizing: border-box;
+    word-break: break-all;
+    max-width: 250px;
+    margin-top: 10px;
+    margin-left: 10px;
+}

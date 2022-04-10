@@ -1,0 +1,45 @@
+
+
+.Post__item img{
+  width: 50px;
+  grid-area: 'avatar';
+  border-radius: 50%;
+  margin: 2px;
+
+}
+.Post__item{
+  display: grid;
+  grid-template-columns: 1fr 15fr;
+  grid-template-rows: 1fr ;
+
+  background-color: #f2dfd3;
+  
+  margin-right: 25%;
+  grid-gap: 10px;
+}
+
+.Post__item p{
+  display: inline-grid;
+
+  color: #0a0413;
+  margin-left: 2.8rem;
+  grid-area: 'content';
+
+  font-size: 16px;
+
+  margin-left: -0.1rem;
+  padding-left: 0.1rem;
+  margin-top: -0.2rem;
+  padding-top: 0.2rem;
+
+}
+
+.item__like{
+  display: inline-block;
+  padding: 0.02rem 0.1rem;
+  font-size: 1.072rem;
+}
+
+.item__likes{
+  display: inline-flex;
+}
