@@ -1,0 +1,29 @@
+.header-component {
+    color: #d8e2e4;
+    padding: 0;
+    margin: 0;
+    font-size: 20px;
+    font-weight: 400;
+    background-color: rgba(0, 0, 0, 0.711);
+
+    /* .header-component__column */
+
+    &__column {
+    }
+
+    /* .header-component__row */
+
+    &__row {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+    }
+
+    /* .header-component__item */
+
+    &__item {
+        padding: 3px 20px;
+        
+    }
+}
+
