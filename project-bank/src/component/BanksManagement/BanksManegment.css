@@ -1,0 +1,27 @@
+body{
+    background-color: azure;
+    color: #222529;
+}
+
+.container{
+    max-width: 1200px;
+    display: grid;
+    margin: 10px 50px;
+    grid-template-rows: max-content;
+    grid-template-columns: min-content;
+    gap: 10px;
+
+}
+.flex{
+    display: flex;
+}
+.container-list{
+    min-height: 30px;
+    min-width: 150px;
+    max-width: 250px;
+    border: 1px dashed darkslategrey;
+    margin: 5px 10px;
+    font-size: 20px;
+    text-align: left;
+    padding: 0px 5px;
+}
