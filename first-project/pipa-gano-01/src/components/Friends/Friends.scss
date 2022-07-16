@@ -1,0 +1,64 @@
+
+$color:#00ffff;
+$color-2:#afeeee;
+$color-3:#4682b4;
+
+
+.User{
+    display: flex;
+    flex-direction: row;
+
+    border: 5px solid $color-2;
+
+    margin: 1.5rem 0;
+    padding: 1.5rem;
+    font-size: 1.5rem;
+
+    &-link img{
+
+        width: 5rem;
+        height: 5rem;
+        max-width: 100%;
+        background-position: center;
+    }
+
+     
+
+     button{
+        height: 2rem;
+        width: 7rem;
+    }
+    &-Follow{
+        border: 2px solid $color;
+    }
+
+    &-Follow:hover {
+        background-color: $color;
+        color: #fff;
+    }
+
+    &-unFollow:hover{
+        background-color: rgb(167, 46, 46);
+        color: #fff;
+    }
+
+};
+
+.Paginator{
+    &-itm{
+        height: 3rem;
+        min-width: 5rem;
+        border: 0.15rem solid $color-2;
+        margin: 0 0.1rem;
+        color: #000;
+        font-size: 1.5rem;
+        font-weight: 600;
+        box-sizing: border-box;
+        
+    }
+    &-itm:hover{
+            color:$color;
+        }
+    
+}
+

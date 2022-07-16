@@ -124,6 +124,7 @@ export const getUsersThunkCreator =(currentPage,PageSize)=>{
 
   let data = await UserAPI.UserGet(currentPage,PageSize)
 
+  dispath(setCurrentPage(currentPage));
   dispath(setIsFetching(false));
   dispath(setUsers(data.items));
   dispath(setTotalCount(data.totalCount));

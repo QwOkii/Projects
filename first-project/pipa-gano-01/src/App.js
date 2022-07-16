@@ -5,12 +5,13 @@ import {BrowserRouter, Route, Routes} from "react-router-dom";
 import Setting from './components/setting/setting.jsx';
 import Musics from './components/music/music.jsx';
 import DialogsContainer from './components/dialogs/DialogsContainer';
-import FriendsContainer from './components/Friends/FriendsContainer';
 import ProfileContainer from './components/Profile/ProfileContainer';
 import HeaderContainer from './components/header/headerContainer';
 import Login from './components/Login/login';
+import Friends from './components/Friends/Friends.tsx';
 
 const App = (props) => {
+
   return (
     <div className='wreapper'>
       <BrowserRouter>
@@ -33,7 +34,7 @@ const App = (props) => {
           <Musics/>}></Route>
 
           <Route exact className="wreapper__Content" path="/Friends" element={
-          <FriendsContainer/>}></Route>
+          <Friends/>}></Route>
 
           <Route exact className="wreapper__Content" path="/Setting" element={
             <Setting/>}></Route>
