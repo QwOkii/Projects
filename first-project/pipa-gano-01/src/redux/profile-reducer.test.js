@@ -6,7 +6,7 @@ import ProfileReducer, { addPostActionCreator } from "./profile-reducer";
 
 
 test('addpost', () => {
-    let action = addPostActionCreator('PENIS');
+    let action = addPostActionCreator('AMONG US');
     let state ={
         PostData: [
           {id:1,post:'hi how are you', likesCount:'12',},

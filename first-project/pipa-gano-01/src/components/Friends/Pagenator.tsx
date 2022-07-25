@@ -15,11 +15,11 @@ let Pagenator =() =>{
 
     let PageCount = Math.ceil(totalUsersCount / PageSize);
     const dispatch =useDispatch();
-    console.log(useSelector(u=>u))
 
     return(
             
         <div>
+            <React.Fragment></React.Fragment>
             
             <div className='Paginator'>
                 <button className="Paginator-itm" disabled={currentPage===1} onClick={()=>{dispatch(getUsersThunkCreator((currentPage-1),PageSize))}}>Preview</button>

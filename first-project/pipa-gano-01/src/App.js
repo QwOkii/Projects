@@ -1,6 +1,7 @@
 import './App.css';
 import Nav from './components/NavBar/nav.jsx';
 import News from './components/news/news.jsx';
+
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 import Setting from './components/setting/setting.jsx';
 import Musics from './components/music/music.jsx';
@@ -17,33 +18,24 @@ const App = (props) => {
       <BrowserRouter>
       <HeaderContainer/>
       <Nav/>
-      <div>
-        <Routes>
-          <Route exact className="wreapper__Content" path="/" element={<News/>}></Route>
+        <Routes className="wreapper__Content" >
+          <Route path="/" element={<News/>}></Route>
 
-          <Route exact className="wreapper__Content" path='/Profile/*' element={
-          <ProfileContainer store={props.store} /> }></Route>
+          <Route path='/Profile/*' element={<ProfileContainer store={props.store} /> }></Route>
 
-          <Route exact className="wreapper__Content" path='/Profile/:userId?' element={
-          <ProfileContainer store={props.store} /> }></Route>
+          <Route  path='/Profile/:userId?' element={<ProfileContainer store={props.store} /> }></Route>
               
-          <Route exact className="wreapper__Content" path="/Dialogs" element={
-          <DialogsContainer store={props.store}/>}></Route>
+          <Route  path="/Dialogs/*" element={<DialogsContainer store={props.store}/>}></Route>
 
-          <Route exact className="wreapper__Content" path="/Music" element={
-          <Musics/>}></Route>
+          <Route  path="/Music" element={<Musics/>}></Route>
 
-          <Route exact className="wreapper__Content" path="/Friends" element={
-          <Friends/>}></Route>
+          <Route  path="/Friends" element={<Friends/>}></Route>
 
-          <Route exact className="wreapper__Content" path="/Setting" element={
-            <Setting/>}></Route>
+          <Route  path="/Setting" element={<Setting/>}></Route>
 
-          <Route exact className="wreapper__Content" path="/Login" element={
-            <Login/>  }></Route>
+          <Route  path="/Login" element={<Login/>  }></Route>
           
         </Routes>
-      </div>
       </BrowserRouter>
     </div>
   

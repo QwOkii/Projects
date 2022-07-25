@@ -1,14 +1,13 @@
 import{ Formik,Form,Field,ErrorMessage }from 'formik'
 import { connect } from 'react-redux'
-import { login } from '../../redux/auth-reducer.js'
+import { login } from '../../redux/auth-reducer'
 
 
 
 const Login = (props) =>{
 
     const  submit = values=>{
-        props.login(values.email,values.password,values.rememberMe)
-        alert(JSON.stringify(values))
+        props.login(values.email,values.password,values.rememberMe);
         
     }
 

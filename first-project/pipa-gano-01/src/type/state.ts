@@ -1,9 +1,12 @@
+
+
 export type InitialTypeUser={
     PageSize:number,
-    UserData:Array<UserData>,
+    UserData:Array<UserData> ,
     currentPage:number,
     totalUsersCount:number
     followingInProgres:boolean|undefined,
+    isFetching: boolean,
 }
 
 export type UserData={
@@ -26,7 +29,7 @@ export type InitialTypeAuth={
 export type InitialTypeProfile ={
     NewPostText:string,
     PostData: Array<PostData>,
-    profile:null|undefined,//потім добавиш шо це
+    profile:ProfileType| null
     status:string| null|undefined
 }
 
@@ -34,6 +37,32 @@ export type PostData ={
     id:number|undefined|null,
     post:string|undefined|null,
     likeCount:number|undefined|null
+}
+
+export type ProfileType={
+    aboutMe:null|string
+    contacts:contactsType
+    fullName:string
+    lookingForAJob:boolean
+    lookingForAJobDescription:any
+    photos:{}
+    userId:number
+}
+
+type contactsType ={
+    facebook:null|string
+    github:null|string
+    instagram:null|string
+    mainLink:null|string
+    twitter:null|string
+    vk:null|string
+    website:null|string
+    youtube:null|string
+}
+
+type photosType={
+    small: null|string
+    large: null|string
 }
 
 export type InitialTypeMessage ={
