@@ -1,6 +1,6 @@
 
 import React, { useEffect } from 'react';
-import photo from '../../image/person.svg';
+import photo from '../../image/VectorUser.svg';
 import './Friends.scss';
 import { NavLink} from 'react-router-dom';
 import Pagenator from './Pagenator';
@@ -24,24 +24,24 @@ let Friend =(props:InitialTypeUser) =>{
             <Pagenator/>
             { UserData.map( (u:UserData) => <div key={u.id} className="User"> 
                     <div>
-                        <NavLink className="User-link" to={ '/Profile/' + u.id}>
+                        <NavLink className="User__link" to={ '/Profile/' + u.id}>
                             <img style={{color:"aqua"}} src={u.photos.small !=null ? u.photos.small :photo}  alt=""/> 
                         </NavLink>
                         <div>
                             {u.followed ?
-                            <button className='User-unFollow' disabled={followingInProgres} onClick={() =>{
+                            <button className='User__unFollow' disabled={followingInProgres} onClick={() =>{
                                 dispatch(unFollow(u.id));
                                 }}>unFollow</button>
 
-                                :<button className='User-Follow' disabled={followingInProgres} onClick={() =>{
+                                :<button className='User__Follow' disabled={followingInProgres} onClick={() =>{
                                 dispatch(Follow(u.id));
                             }}>Follow</button> }
                         
                         </div>
                     </div>
-                    <div>
-                        <div>{u.name}</div>
-                        <div style={{fontSize:16}}>{u.status}</div>
+                    <div className='User-info'>
+                        <div className='User-info__name'>{u.name}</div>
+                        <div className='User-info__status'>{u.status}</div>
                     </div>
             </div>)}
             <Pagenator/>

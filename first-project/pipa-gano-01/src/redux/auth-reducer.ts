@@ -56,7 +56,7 @@ export const AuthMeUpdate=():ThunkType =>{
     dispath(SetUserData(email,id,login,true));
   }
 }
-export const login=(email:string,password:string,rememberMe:boolean):ThunkType=>{
+export const login=(email:string,password:string,rememberMe?:boolean):ThunkType=>{
   return async (dispath)=>{
   let data = await UserAPI.AuthLoginPost(email,password,rememberMe)
     if(data.resultCode=== 0){

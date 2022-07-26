@@ -1,46 +1,57 @@
 
-$color:#00ffff;
-$color-2:#afeeee;
-$color-3:#4682b4;
-
+$color:#4ba8c7;
 
 .User{
     display: flex;
     flex-direction: row;
 
-    border: 5px solid $color-2;
+    border: 2px solid $color;
 
     margin: 1.5rem 0;
     padding: 1.5rem;
-    font-size: 1.5rem;
 
-    &-link img{
+    width: 600px;
+    height: 100px;
+
+
+    &__link img{
 
         width: 5rem;
         height: 5rem;
         max-width: 100%;
         background-position: center;
     }
-
-     
-
-     button{
+    button{
         height: 2rem;
         width: 7rem;
+        color: #fff;
+        border: 0;
+        
     }
-    &-Follow{
-        border: 2px solid $color;
+    &__Follow{
+        background-color: $color;
+        
+    }
+    &__unFollow{
+        background-color: #F84848;
     }
 
-    &-Follow:hover {
+    &__Follow:hover {
         background-color: $color;
         color: #fff;
     }
 
-    &-unFollow:hover{
+    &__unFollow:hover{
         background-color: rgb(167, 46, 46);
         color: #fff;
     }
+    &-info__name{
+        font-size: 1.2rem;
+    }
+    &-info__status{
+        margin: 10px 0
+    }
+    
 
 };
 
@@ -48,17 +59,20 @@ $color-3:#4682b4;
     &-itm{
         height: 3rem;
         min-width: 5rem;
-        border: 0.15rem solid $color-2;
+        border: 0;
+        background-color: $color;
         margin: 0 0.1rem;
-        color: #000;
+        color: #ffffff;
+
         font-size: 1.5rem;
         font-weight: 600;
+
         box-sizing: border-box;
         
     }
     &-itm:hover{
-            color:$color;
-        }
+        opacity: 0.6;
+    }
     
 }
 

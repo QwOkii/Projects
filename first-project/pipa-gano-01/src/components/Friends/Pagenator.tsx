@@ -22,7 +22,7 @@ let Pagenator =() =>{
             <React.Fragment></React.Fragment>
             
             <div className='Paginator'>
-                <button className="Paginator-itm" disabled={currentPage===1} onClick={()=>{dispatch(getUsersThunkCreator((currentPage-1),PageSize))}}>Preview</button>
+                <button className='Paginator-itm' disabled={currentPage===1} onClick={()=>{dispatch(getUsersThunkCreator((currentPage-1),PageSize))}}>Preview</button>
                 <button className="Paginator-itm" disabled>{ currentPage}</button>
                 <button className="Paginator-itm" disabled={currentPage === PageCount} onClick={()=>{dispatch(getUsersThunkCreator((currentPage+1),PageSize)) }}>Next</button>
             </div>

@@ -14,10 +14,11 @@ enum ActionType{
 
 let InitialState:InitialTypeProfile ={
   PostData: [
-    {id:1,post:'hi how are you', likeCount:12,},
-    {id:2,post:'hi ',likeCount:1,},
-    {id:3,post:'syp nsjdjjs',likeCount:10,},
-    {id:4,post:'skkakskak',likeCount:75,},],
+    {id:1,post:'Lorem Ipsum is simply dummy text of the printing and typesetting industry.  '},
+    {id:2,post:'Lorem Ipsum has been the industrys standard dummy text ever since the 1500s'+
+       'when an unknown printer took a galley of type and scrambled it to make a type specimen book.'},
+    {id:3,post:' more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.'},
+    {id:4,post:'Contrary to popular belief, Lorem Ipsum is not simply random text'},],
 
   NewPostText:'',
   profile:null,
@@ -28,13 +29,12 @@ const ProfileReducer = (state:InitialTypeProfile = InitialState, action:ActionCr
   switch(action.type){
   case ActionType['profile/ADD-POST']:{
     let NewPost:PostData={
-      id:5,
-      post: state.NewPostText,
-      likeCount:0,
+      id: state.PostData.length +1,
+      post: state.NewPostText
     };
     return {
       ...state,
-      PostData: [...state.PostData,NewPost],
+      PostData: [ NewPost,...state.PostData.reverse()],
       NewPostText:''
     }
   }

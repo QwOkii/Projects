@@ -1,0 +1,42 @@
+$color:#4ba8c7;
+.Profile{
+    &--container{
+        display: flex;
+        padding: 20px;
+        width: 780px;
+        height: 250px;
+    }
+    &--container img{
+        width: 250px;
+        height: 250px;
+        border-radius:4px ;
+    }
+    &__info{
+        margin-left: 20px;
+        width: 450px;
+        height: 250px;
+        background-color: $color;
+        color: #fff;
+        .fz20{
+            padding: 10px;
+        }
+        &--status{
+            padding:0 10px;
+        }
+        input{
+            margin: 0 10px;
+            width: 150px;
+            height: 30px;
+            border-radius: 4px;
+            border: none;
+            outline: none;
+        }
+    }
+    
+
+
+}
+.fz20{
+    font-size: 20px;
+    line-height: 150%;
+}

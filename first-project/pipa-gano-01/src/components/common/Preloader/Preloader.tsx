@@ -1,7 +1,7 @@
 
 import loading from '../../../image/Spinner.svg';
 
-const PreLoader = (props)=>{
+const PreLoader = (props:any)=>{
     return(
         <div>
             <img src={loading} style={{backgroundColor:'white'}}/>

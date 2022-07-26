@@ -1,13 +1,19 @@
 import{ Formik,Form,Field,ErrorMessage }from 'formik'
-import { connect } from 'react-redux'
+import { connect, useDispatch } from 'react-redux'
 import { login } from '../../redux/auth-reducer'
 
 
 
-const Login = (props) =>{
+const Login = (props:any) =>{
 
-    const  submit = values=>{
-        props.login(values.email,values.password,values.rememberMe);
+    type ValuesType={
+        email:string ,
+        password:string,
+        rememberMe?:boolean
+    }
+    const dispatch =useDispatch()
+    const  submit = (values:ValuesType)=>{
+        dispatch( login(values.email,values.password,values.rememberMe))
         
     }
 
@@ -18,7 +24,7 @@ const Login = (props) =>{
                 <Formik
                 initialValues={{email:'',password:'',rememberMe:false}}
                 validate={ values=>{
-                    const errors={}
+                    const errors:ValuesType={email:'',password:'',rememberMe:undefined}
                     if(!values.email){
                         errors.email ='Required'
                     }

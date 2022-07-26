@@ -1,0 +1,19 @@
+$color:#4ba8c7;
+
+.Profile-Post__item{
+    border: 3px solid $color ;
+    width: 600px;
+    min-height: 60px;
+    max-height: auto;
+    margin: 7px 0;
+    border-radius: 4px;
+    &--name{
+        margin: 0 10px;
+        font-size: 20px;
+        line-height: 150%;
+    }
+    &--text{
+        margin: 0 15px;
+    }
+
+}

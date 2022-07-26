@@ -35,8 +35,7 @@ export type InitialTypeProfile ={
 
 export type PostData ={
     id:number|undefined|null,
-    post:string|undefined|null,
-    likeCount:number|undefined|null
+    post:string|undefined|null
 }
 
 export type ProfileType={

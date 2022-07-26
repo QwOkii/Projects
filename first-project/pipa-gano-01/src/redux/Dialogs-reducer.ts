@@ -53,7 +53,7 @@ type AddMessageActionCreatorType={
 
 type updateNewTextActionCreatorType={
     type: typeof ActionType['dialog/UPDATE-NEW-MESSAGE-TEXT'],
-    NewText:string,
+    NewText?:string,
 }
 
 export const AddMessageActionCreator = ():AddMessageActionCreatorType=>{
@@ -61,7 +61,7 @@ export const AddMessageActionCreator = ():AddMessageActionCreatorType=>{
         type: ActionType['dialog/ADD-MESSAGE'],
     }
 }
-export const UpdateNewMessageTextActionCreator = (NewText:string):updateNewTextActionCreatorType=>{
+export const UpdateNewMessageTextActionCreator = (NewText?:string):updateNewTextActionCreatorType=>{
     return{
         type: ActionType['dialog/UPDATE-NEW-MESSAGE-TEXT'],
         NewText,
