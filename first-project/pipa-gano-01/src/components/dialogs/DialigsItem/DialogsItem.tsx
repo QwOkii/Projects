@@ -1,12 +1,17 @@
+import React from 'react';
 import { NavLink } from 'react-router-dom';
 import './DialogsItem.scss'
+import photo from '../../../image/VectorUser.svg';
 
-const DialogItems = (props:{name?:string,id?:number}) =>{
+const DialogItems:React.FC<{name?:string,id?:number}> = (props) =>{
     let path = '/Dialogs/' + props.id
     return(
-        <div className='item '>
-            <NavLink to={path}>{props.name}</NavLink>
-        </div>
+        <>
+            <NavLink to={path} className='list__item'>
+            <img src={photo} alt="" />
+                {props.name}
+                </NavLink>
+        </>
     );
 }
 

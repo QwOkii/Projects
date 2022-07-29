@@ -23,7 +23,6 @@ const ProfileStatus = (props:any) =>{
 
     const onChangeStatus =(e:any)=>{
         setStatus(e.currentTarget.value)
-        console.log(e)
     }
 
     

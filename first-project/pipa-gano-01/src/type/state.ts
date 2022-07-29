@@ -23,7 +23,8 @@ export type InitialTypeAuth={
     email: string|null|undefined,
     id:number|null|undefined,
     isAuth:boolean|null|undefined,
-    login:string|null|undefined
+    login:string|null
+    captchaURL:string|null
 }
 
 export type InitialTypeProfile ={
@@ -44,7 +45,7 @@ export type ProfileType={
     fullName:string
     lookingForAJob:boolean
     lookingForAJobDescription:any
-    photos:{}
+    photos:photosType
     userId:number
 }
 
@@ -65,9 +66,10 @@ type photosType={
 }
 
 export type InitialTypeMessage ={
-    NewMessageText:string,
+    NewMessageText?:string,
     dialogData:Array<dialogData>,
     messageData:Array<messageData>
+    MyName:string|null
 }
 
 export type dialogData={
@@ -76,8 +78,10 @@ export type dialogData={
 }
 
 export type messageData={
-    id:number|undefined,
-    message:string
+    id:number,
+    message?:string,
+    name:string |null
+    photo?:string
 }
 
 export type StateType={

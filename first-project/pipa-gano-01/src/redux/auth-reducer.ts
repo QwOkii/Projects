@@ -3,20 +3,23 @@ import { UserAPI } from "../api/api";
 import { ThunkAction } from 'redux-thunk';
 
 
-const type_SET_USER_DATA ="auth/SET_USER_DATA";
-
+enum ActionType{
+  "auth/SET_USER_DATA",
+  "auth/SET-CAPTCHA"
+}
 
 let InitialState:InitialTypeAuth ={
   id:null,
   email: null,
   login:null,
-  isAuth:false
+  isAuth:false,
+  captchaURL:null
   
 }
 
 const authReducer = (state = InitialState, action:ActionCreatorTypes):InitialTypeAuth =>{
     switch(action.type){
-      case type_SET_USER_DATA:{
+      case ActionType['auth/SET_USER_DATA']:{
         console.log(action.payload)
         return{
           ...state,
@@ -26,15 +29,21 @@ const authReducer = (state = InitialState, action:ActionCreatorTypes):InitialTyp
           id:action.payload.id
         }
       }
+      case ActionType['auth/SET-CAPTCHA']:{
+        return{
+          ...state,
+          captchaURL:action.captchaURL
+        }
+      }
     default:
        return state;
     }
 }
 
-type ActionCreatorTypes =setUserDataType;
+type ActionCreatorTypes =setUserDataType|GetCaptchaACType;
 
 type setUserDataType={
-  type: typeof type_SET_USER_DATA
+  type: typeof ActionType['auth/SET_USER_DATA']
   payload:{
     email:string|null,
     id:number|null,
@@ -42,9 +51,23 @@ type setUserDataType={
     isAuth:boolean|null
   }
 }
+type GetCaptchaACType={
+  type:typeof ActionType['auth/SET-CAPTCHA']
+  captchaURL:string|null
+}
 
-export const SetUserData = (email:string|null,id:number|null,login:string|null, isAuth:boolean|null):setUserDataType =>
-({type:type_SET_USER_DATA, payload:{email,id,login,isAuth}})
+export const GetCaptchaAC =(captchaURL:string|null):GetCaptchaACType=>{
+  return{
+    type:ActionType['auth/SET-CAPTCHA'],
+    captchaURL
+  }
+}
+
+export const SetUserData = (email:string|null,id:number|null,login:string|null, isAuth:boolean|null):setUserDataType =>{
+  return({type:ActionType['auth/SET_USER_DATA'], payload:{email,id,login,isAuth}})
+
+}
+
 
 type ThunkType = ThunkAction<Promise<void>,StateType,unknown,ActionCreatorTypes>;
 
@@ -56,12 +79,28 @@ export const AuthMeUpdate=():ThunkType =>{
     dispath(SetUserData(email,id,login,true));
   }
 }
-export const login=(email:string,password:string,rememberMe?:boolean):ThunkType=>{
+
+export const GETCaptchaUrl =():ThunkType=>{
   return async (dispath)=>{
-  let data = await UserAPI.AuthLoginPost(email,password,rememberMe)
-    if(data.resultCode=== 0){
+    const data = await UserAPI.GetCaptchaUrl()
+    dispath(GetCaptchaAC(data.url))
+  }
+}
+
+export const login=(email:string,password:string,captcha:string|null,rememberMe?:boolean):ThunkType=>{
+  return async (dispath)=>{
+  let data = await UserAPI.AuthLoginPost(email,password,captcha,rememberMe)
+    console.log(data)
+    if(data.resultCode === 0){
       dispath(AuthMeUpdate());
+      
     }
+    else{
+      if(data.resultCode === 10){
+        dispath(GETCaptchaUrl())
+      }
+    }
+    
   }
 }
 export const logout = ():ThunkType=>{ 

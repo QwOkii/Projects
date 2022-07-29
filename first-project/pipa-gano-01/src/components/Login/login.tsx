@@ -1,6 +1,7 @@
 import{ Formik,Form,Field,ErrorMessage }from 'formik'
-import { connect, useDispatch } from 'react-redux'
+import { connect, useDispatch, useSelector } from 'react-redux'
 import { login } from '../../redux/auth-reducer'
+import { StateType } from '../../type/state'
 
 
 
@@ -9,34 +10,29 @@ const Login = (props:any) =>{
     type ValuesType={
         email:string ,
         password:string,
-        rememberMe?:boolean
+        rememberMe:boolean
+        captchaURL:string|null
     }
+    const captcha = useSelector((u:StateType)=>u.auth.captchaURL)
     const dispatch =useDispatch()
-    const  submit = (values:ValuesType)=>{
-        dispatch( login(values.email,values.password,values.rememberMe))
-        
-    }
+    
 
     return(
         <div>
             <h1>login</h1>
             <div>
                 <Formik
-                initialValues={{email:'',password:'',rememberMe:false}}
-                validate={ values=>{
-                    const errors:ValuesType={email:'',password:'',rememberMe:undefined}
-                    if(!values.email){
-                        errors.email ='Required'
-                    }
-                    else if(!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)){
-                        errors.email ='Invalid Email addres'
-                    }
-                    return errors
+                initialValues={{email:'',password:'',rememberMe:false,captchaURL:''}}
+                
+                onSubmit={(values:ValuesType)=>{
+                    const {email,password,rememberMe,captchaURL }=values
+                    dispatch( login(email,password,captchaURL,rememberMe))
+                    console.log('send',values)
+        
                 }}
-                onSubmit={submit}
                 //validationSchema={loginFormShema}
                 >
-                    {propsformik=> (<Form >
+                    <Form >
                         <div>
                             <Field type={'text'} name={'email'} placeholder={'e-mail'}></Field>
                         </div>
@@ -49,8 +45,14 @@ const Login = (props:any) =>{
                             <Field type={'checkbox'} name={'rememberMe'}></Field>
                             <label htmlFor={"rememberMe"}>rememberMe</label>
                         </div>
-                        <button type={"submit"}>Log in</button>
-                    </Form>)}
+                        <button type="submit">Log in</button>
+                        {captcha !==null&&
+                            <div>
+                            is captcha <img src={captcha} alt="" />
+                            <Field name={'captchaURL'} />
+                            </div>
+                        }
+                    </Form>
                 </Formik>
             </div>
         </div>

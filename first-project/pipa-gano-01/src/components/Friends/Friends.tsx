@@ -11,17 +11,18 @@ import { Follow, getUsersThunkCreator, unFollow } from '../../redux/friends-redu
 
 let Friend =(props:InitialTypeUser) =>{
     
-    const {currentPage,PageSize,followingInProgres,UserData}= useSelector((u:StateType)=>u.UserPage)
+    const {currentPage,PageSize,followingInProgres,UserData,totalUsersCount}= useSelector((u:StateType)=>u.UserPage)
     
     
     const dispatch =useDispatch();
 
     useEffect(()=>{dispatch(getUsersThunkCreator(currentPage,PageSize))},[])
+    
     return(
             
-        <div>
+        <div style={{margin:10}}>
             
-            <Pagenator/>
+            <Pagenator PageSize={PageSize} currentPage={currentPage} getUsersThunkCreator={dispatch(getUsersThunkCreator)} totalUsersCount={totalUsersCount}/>
             { UserData.map( (u:UserData) => <div key={u.id} className="User"> 
                     <div>
                         <NavLink className="User__link" to={ '/Profile/' + u.id}>
@@ -44,7 +45,7 @@ let Friend =(props:InitialTypeUser) =>{
                         <div className='User-info__status'>{u.status}</div>
                     </div>
             </div>)}
-            <Pagenator/>
+            <Pagenator PageSize={PageSize} currentPage={currentPage} getUsersThunkCreator={dispatch(getUsersThunkCreator)} totalUsersCount={totalUsersCount} />
         
         </div>
     );

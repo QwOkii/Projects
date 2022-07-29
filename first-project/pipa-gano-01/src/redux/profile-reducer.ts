@@ -122,7 +122,6 @@ export const getPerson = (userId = 22847):ThunkType =>{
 export const getStatus = (userId:number):ThunkType =>{
   return async (dispath)=>{
   let data = await ProfileAPI.ProfileStatusGet(userId)
-  
   dispath(setStatus(data));
 }}
 

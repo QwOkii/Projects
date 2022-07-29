@@ -7,6 +7,7 @@ import './Header.scss';
 
 const Header = () =>{
   const {login,isAuth}=useSelector((u:StateType)=>u.auth)
+  
 
   useEffect(()=>{
     AuthMeUpdate()
@@ -25,6 +26,7 @@ const Header = () =>{
 
 const Name = (props:any) =>{
   const dispathc =useDispatch()
+  
   return <>
     <div className="header__name">{props.login}</div> <div className="header--btn" onClick={()=>dispathc(props.logout())}><p>logout</p></div>
   </>

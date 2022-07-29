@@ -7,11 +7,10 @@ import { StateType } from '../../../type/state';
 import { addPostActionCreator, updateNewTextActionCreator } from '../../../redux/profile-reducer';
 
 const MyPosts = React.memo(() =>{
+
   const dispatch = useDispatch()
   const {PostData,NewPostText} =useSelector((u:StateType)=>u.ProfilePage)
 
-  let PostElement = 
-    PostData.map( (post) => <Post key={post.id} post ={post.post}/> );
 
   let newPostElement = React.useRef<HTMLTextAreaElement>(null);
 
@@ -25,18 +24,17 @@ const MyPosts = React.memo(() =>{
   };
 
   return(
-      <div className='Profile-Post'>
-        <div className='Profile-Post__new'>
-          <div className='Profile-Post__input'>
-            <textarea placeholder='type text...' onChange={onPostChange} ref={newPostElement} value={NewPostText}></textarea>
-            <button onClick={onAddPost}>send <img src={sendSVG} alt="" /></button>
-          </div>
-          
-        </div>
-        <div className ="Profile-Post__items">
-          {PostElement}
+    <div className='Profile-Post'>
+      <div className='Profile-Post__new'>
+        <div className='Profile-Post__input'>
+          <textarea placeholder='type text...' onChange={onPostChange} ref={newPostElement} value={NewPostText}></textarea>
+          <button onClick={onAddPost}>send <img src={sendSVG} alt="" /></button>
         </div>
       </div>
-    );
+      <div className ="Profile-Post__items">
+        { PostData.map( (post) => <Post key={post.id} post ={post.post}/> )}
+      </div>
+    </div>
+  );
 });
 export default MyPosts;

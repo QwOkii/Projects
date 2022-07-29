@@ -9,7 +9,12 @@ body{
 }
 
 .wreapper__Content{
-  width: 100%;
+  
+  border: 1.5px solid #333;
+  margin-bottom: 50px;
+  
+  width: 780px;
+  min-height: 868px;
 }
 .wreapper__Content--container{
   display: flex;
