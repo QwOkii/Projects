@@ -27,7 +27,6 @@ const Login = (props:any) =>{
                 onSubmit={(values:ValuesType)=>{
                     const {email,password,rememberMe,captchaURL }=values
                     dispatch( login(email,password,captchaURL,rememberMe))
-                    console.log('send',values)
         
                 }}
                 //validationSchema={loginFormShema}
